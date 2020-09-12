@@ -70,7 +70,7 @@ var opcodes = [
 	{op:"DEC HL",	wt:"6",	sz:"1",	bt:"2B"},
 	{op:"DEC IX",	wt:"10",	sz:"2",	bt:"DD 2B"},
 	{op:"DEC IY",	wt:"10",	sz:"2",	bt:"FD 2B"},
-	{op:"DEC L",	wt:"4",	sz:"2",	bt:"2D"},
+	{op:"DEC L",	wt:"4",	sz:"1",	bt:"2D"},
 	{op:"DEC SP",	wt:"6",	sz:"1",	bt:"3B"},
 	{op:"DI",	wt:"4",	sz:"1",	bt:"F3"},
 	{op:"DJNZ $+2",	wt:"13/8",	sz:"1",	bt:"10"},
