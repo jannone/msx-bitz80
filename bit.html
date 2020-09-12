@@ -25,7 +25,7 @@ Contact the author by e-mail: rafael@jannone.org
 
 body, td, th {
 	font-family: verdana, tahoma, arial;
-	font-size: 13px;	
+	font-size: 13px;
 }
 
 th {
@@ -36,11 +36,11 @@ body {
 	background-color: #EEEEEE;
 	margin: 0 0 0 0;
 	padding: 0 0 0 0;
-	overflow-y: hidden;	
+	overflow-y: hidden;
 }
 
 textarea, .fixed {
-	font-family: mono;
+	font-family: SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace;
 	font-size: 13px;
 }
 
@@ -63,7 +63,7 @@ textarea, .fixed {
 }
 
 .opcodesBody {
-	background: white; 
+	background: white;
 	height: 128px;
 
 	overflow-x:hidden;
@@ -76,7 +76,7 @@ textarea, .fixed {
 }
 
 .labDescBody {
-	font-family: mono, courier new;
+	font-family: SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace;
 	font-size: 13px;
 }
 
@@ -113,7 +113,7 @@ textarea, .fixed {
 	border-top: solid 1px white;
 	border-left: solid 1px white;
 	border-right: solid 1px gray;
-	border-bottom: solid 1px gray;			
+	border-bottom: solid 1px gray;
 }
 
 .tool {
@@ -132,11 +132,11 @@ textarea, .fixed {
 .registers {
 	width: 256px;
 	margin-left: auto;
-	margin-right: auto;	
+	margin-right: auto;
 }
 
 .registers td {
-	font-family: mono, courier new, courier;
+	font-family: SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace;
 }
 
 .regNames {
@@ -159,16 +159,16 @@ textarea, .fixed {
 /* menu CSS effect */
 
 .menuTop, .menuSub ul {
-	padding: 0; margin: 0; 
+	padding: 0; margin: 0;
 	border-bottom: 1px solid silver;
 	font: 12px verdana;
 }
 
 .menuTop li, .menuSub li {
 	list-style-type: none;
-	border: 1px solid silver; 
+	border: 1px solid silver;
 	border-width: 1px 1px 0 3px;
-	position: relative; 
+	position: relative;
 	margin: 0; padding: 0;
 }
 
@@ -177,14 +177,14 @@ textarea, .fixed {
 }
 
 .menuTop li:hover > ul, .menuSub li:hover > ul {
-	display: block; 
-	position: absolute; 
+	display: block;
+	position: absolute;
 	top: -1px; left: 100%;
 }
 
 .menuTop > li a,  .menuSub > li a {
-	display: block; 
-	padding: 4px 6px; 
+	display: block;
+	padding: 4px 6px;
 	text-decoration: none;
 	background: #FFF;
 	cursor: pointer;
@@ -207,8 +207,8 @@ li.menuSub > a {
 }
 
 .menuTop > li:hover > ul {
-	width: 12em; 
-	top: 1.75em; 
+	width: 12em;
+	top: 1.75em;
 	left: -3px;
 	z-index: 1000;
 }
@@ -247,7 +247,7 @@ var shared = {};
 	<form id="postForm" action="http://msx.jannone.org/bit/echo.php" method="post" enctype="multipart/form-data" target="postTarget">
 		<input name="data" type="hidden" id="postData" />
 		<input name="type" type="hidden" id="postType" />
-		<input name="name" type="hidden" id="postName" />		
+		<input name="name" type="hidden" id="postName" />
 	</form>
 	<iframe name="postTarget"></iframe>
 	</div>
@@ -263,7 +263,7 @@ var shared = {};
 		</ul>
 		</li>
 	</ul>
-	<ul class="menuTop" style='width: 7em'>				
+	<ul class="menuTop" style='width: 7em'>
 		<li class="menuSub"><a>Assembler</a>
 		<ul>
 			<li><a onclick='build("bin")'>Build BIN...</a></li>
@@ -300,12 +300,12 @@ var shared = {};
 		</li>
 	</ul>
 </div>
-	
+
 	<table width='100%' height='100%' cellspacing='0' cellpadding='0'>
 		<tr>
 			<!-- TOP MENU PLACEHOLDER -->
 			<td id='tdTopMenuHolder' colspan='2' style='border-bottom: solid 1px silver'>
-				<span style='float: left'>&nbsp;</span>				
+				<span style='float: left'>&nbsp;</span>
 				<div id='tblLabels' style='float: right; padding-top: 4px; padding-right: 24px;'>
 					Jump:
 					<select class='labels' id='labels' onchange='gotoLabel(this)'></select>
@@ -347,27 +347,27 @@ var shared = {};
 						</td>
 						<td class='regVals' valign='top'>
 							<span></span><br />
-							<span></span><br />	
-							<span></span><br />	
-							<span></span><br />	
+							<span></span><br />
+							<span></span><br />
+							<span></span><br />
 						</td>
 						<td class='regNames' valign='top'>
 							AF'<br /> BC'<br /> DE'<br /> HL'
 						</td>
 						<td class='regVals' valign='top'>
 							<span></span><br />
-							<span></span><br />	
-							<span></span><br />	
-							<span></span><br />	
+							<span></span><br />
+							<span></span><br />
+							<span></span><br />
 						</td>
 						<td class='regNames' valign='top'>
 							IX<br /> IY<br /> PC<br /> SP
 						</td>
 						<td class='regVals' valign='top'>
 							<span></span><br />
-							<span></span><br />	
-							<span></span><br />	
-							<span></span><br />	
+							<span></span><br />
+							<span></span><br />
+							<span></span><br />
 						</td>
 					</tr>
 					</table>
@@ -465,7 +465,7 @@ function showLabelInfo(l) {
 		return;
 	var aLabel = editor.labels[l];
 	if (!aLabel && iDocID != null && parent.shared.bit.aLabels) {
-		for (var i in parent.shared.bit.aLabels) {			
+		for (var i in parent.shared.bit.aLabels) {
 			aLabel = parent.shared.bit.aLabels[i][l];
 			if (aLabel)
 				break;
@@ -478,7 +478,7 @@ function showLabelInfo(l) {
 
 	eid('labDescTitle').innerHTML = 'Ref <b>' + l + '</b>';
 	eid('labDescBody').innerHTML = (aLabel.desc) ?
-		'<div class="labDescBody">' + 
+		'<div class="labDescBody">' +
 			aLabel.desc.replace(/^[ \t]*;/, '').replace(/\n[ \t]*;/g, "\n").replace(/\n/g, '<br />') + '</div>' :
 		'<i>No comment available</i><br /><small style="color: gray">Tip: write comments before this label</small>';
 	if (iDocID != null && aLabel.path) {
@@ -490,7 +490,7 @@ function showLabelInfo(l) {
 		eid('labDescFile').innerHTML = '<small>in ' + aLabel.path + sJump + '</small>';
 	} else {
 		eid('labDescFile').innerHTML = '';
-	}	
+	}
 	eid('labDesc').style.display = null;
 }
 
@@ -500,7 +500,7 @@ function sortByScore(a, b) {
 
 function opcodeScore(opstr, frag) {
 	opstr = opstr.replace(/ /g, '');
-	frag = frag.replace(/ /g, '');	
+	frag = frag.replace(/ /g, '');
 	for (var i=0; i<opstr.length; i++) {
 		if (opstr.charAt(i) != frag.charAt(i))
 			return i;
@@ -540,7 +540,7 @@ editor.onCheckKeyword = function(line) {
 		if (opcodes[i].op.substr(0, klen) == key) {
 			var opcode = opcodes[i];
 			var score = opcodeScore(opcode.op, frag);
-			selected.push({score: score, opcode: opcode});			
+			selected.push({score: score, opcode: opcode});
 		}
 	}
 	selected.sort(sortByScore);
@@ -563,7 +563,7 @@ editor.onChange = function() {
 		var aDoc = parent.app.moduleGetDocument(iDocID);
 		sFilePath = aDoc.sPath;
 		parent.app.moduleDocumentChanged(iDocID);
-		
+
 		/* use shared scanning, only possible after moduleDocumentChanged */
 		this.labels = parent.shared.bit.aLabels[aDoc.sPath];
 	} else {
@@ -571,10 +571,10 @@ editor.onChange = function() {
 		this.labels = {};
 		shared.bit.scanLabels(this.el.value, this.labels, sFilePath);
 	}
-	
+
 	showLabelInfo(currentLabel);
 
-	var el = eid('labels');	
+	var el = eid('labels');
 	el.options.length = 0;
 	for (var l in this.labels) {
 		var opt = new Option(l, l);
@@ -625,7 +625,7 @@ editor.onKeyUp = function(c) {
 			var sLine = sText.substr(iLinePos, sText.length).replace(/\t/g, '        ');
 			var iX = getOffsetLeft(editor.el), iY = getOffsetTop(editor.el);
 			oFloat.setup(aMatches);
-			oFloat.show(iX + (sLine.length - iSz) * 8, 
+			oFloat.show(iX + (sLine.length - iSz) * 8,
 				iY + (this.oCursor.y) * 17 - this.el.scrollTop);
 			oFloat.onChange = function(sText) {
 				//log('float onchange');
@@ -677,7 +677,7 @@ function assemble(sType) {
 	oASM.patch();
 
 	if (oASM.iExec == null) {
-		var r = confirm("There's no MAIN label; execution will begin at " + 
+		var r = confirm("There's no MAIN label; execution will begin at " +
 			toHex(oASM.iBegin,4) + "h. Proceed?");
 		if (!r)
 			return;
@@ -688,25 +688,25 @@ function assemble(sType) {
 
 	var aBin = null;
 	oASM.iPointer--;
-	
+
 	switch (sType) {
 		case 'rom':
 			 aBin = [];
 			break;
 		case 'bin':
 		default:
-			 aBin = [ 0xFE, 
-				oASM.iBegin & 255, (oASM.iBegin >> 8) & 255, 
-				oASM.iPointer & 255, (oASM.iPointer >> 8) & 255, 
-				oASM.iBegin & 255, (oASM.iBegin >> 8) & 255, 
+			 aBin = [ 0xFE,
+				oASM.iBegin & 255, (oASM.iBegin >> 8) & 255,
+				oASM.iPointer & 255, (oASM.iPointer >> 8) & 255,
+				oASM.iBegin & 255, (oASM.iBegin >> 8) & 255,
 			];
 			break;
 	}
-	
+
 	for (var i=0; i<aMem.length; i++) {
 		if (typeof aMem[i] != 'object')
 			aBin.push(aMem[i]);
-	}	
+	}
 
 	// debug
 	/*
@@ -715,7 +715,7 @@ function assemble(sType) {
 		}
 		log(aBin.join(',')); return;
 	*/
-	
+
 	return aBin;
 }
 
@@ -737,7 +737,7 @@ function build(sType) {
 	if (iDocID != null) {
 		for (var i=0; i<aBin.length; i++) {
 			aBin[i] = String.fromCharCode(aBin[i]);
-		}	
+		}
 		var aFile = parent.app.moduleGetDocument(iDocID);
 		var sPath = aFile.sPath.replace(/\.[^\.]*$/, '') + '.' + sType;
 		parent.app.moduleGeneration(sPath, aBin.join(''));
@@ -779,7 +779,7 @@ function findOffset() {
 	try {
 		oASM.start(sCode);
 
-	} catch(e) {		
+	} catch(e) {
 		alert(e + " (line " + oASM.getLineNumber() + ")");
 	}
 	Sel.setRange(editor.el, oASM.iPos, oASM.iPos);
@@ -789,7 +789,7 @@ function findOffset() {
 
 function calcTime() {
 	var sCode = Sel.getText(editor.el);
-	
+
 	var oASM = new ASM();
 	try {
 		oASM.start(sCode);
@@ -797,7 +797,7 @@ function calcTime() {
 		alert(e);
 		return;
 	}
-	
+
 	if (oASM.aMem.length == 0) {
 		alert("You must select a block containing Z80 instructions");
 	} else {
@@ -806,17 +806,17 @@ function calcTime() {
 		}
 		var aTotal = [oASM.aTime[0], oASM.aTime[1]];
 		aTotal[0] += oASM.iM1;
-		aTotal[1] += oASM.iM1;		
-		alert("Measured time: " + showTime(oASM.aTime) + "\n" + 
-			"Z80 Waitstates: " + oASM.iM1 + "\n" + 
-			"Total time: " + showTime(aTotal) + "\n\n" + 
+		aTotal[1] += oASM.iM1;
+		alert("Measured time: " + showTime(oASM.aTime) + "\n" +
+			"Z80 Waitstates: " + oASM.iM1 + "\n" +
+			"Total time: " + showTime(aTotal) + "\n\n" +
 			"Code size: " + oASM.aMem.length + " byte" + (oASM.aMem.length == 1 ? '' : 's'));
 	}
 }
 
 function preview() {
 	var sCode = Sel.getText(editor.el);
-	
+
 	var oASM = new ASM();
 	try {
 		oASM.start(sCode);
@@ -827,7 +827,7 @@ function preview() {
 
 	oASM.evaluateData(true);
 	oASM.patch(true);
-	
+
 	if (oASM.aMem.length == 0) {
 		alert("You must select a block containing Z80 instructions");
 	} else {
@@ -871,7 +871,7 @@ function save() {
 		try {
 			mRes = oFile.save(editor.el.value);
 		} catch(e) {
-			alert("Error: access denied");			
+			alert("Error: access denied");
 		}
 	});
 	if (!bGranted) {
@@ -883,7 +883,7 @@ function save() {
 
 function showRegisters() {
 	var oApplet = eid('emu');
-	var aRegs = ["AF", "BC", "DE", "HL", "AF'", "BC'", "DE'", "HL'", "IX", "IY", "PC", "SP"]; 
+	var aRegs = ["AF", "BC", "DE", "HL", "AF'", "BC'", "DE'", "HL'", "IX", "IY", "PC", "SP"];
 	var aValues = {};
 	for (var i = 0; i < aRegs.length; i++) {
 		var sReg = aRegs[i];
@@ -925,7 +925,7 @@ function debugStart() {
 			return;
 	}
 
-	var aBin = assemble('rom');	
+	var aBin = assemble('rom');
 	if (!aBin)
 		return;
 	for (var i=0; i<aBin.length; i++) {
@@ -934,7 +934,7 @@ function debugStart() {
 	var sBin = aBin.join('');
 	//alert("bin [send] = " + sBin.length);
 
-	if (bEnableDebugging && !oApplet) {	
+	if (bEnableDebugging && !oApplet) {
 		eid('debug').style.marginBottom = '24px';
 		sApplet = '<applet id="emu" codebase="jmsx" code="MsxEmu" width="256" height="192" MAYSCRIPT>' +
 			'<param name="bios" value="jmsx/msx1.rom"><param name="scriptable" value="true">' +
@@ -950,10 +950,10 @@ function debugStart() {
 		for (var k in aBreakpoints) {
 			oApplet.setBreakpoint(aBreakpoints[k], k);
 		}
-		oApplet.stop();	
+		oApplet.stop();
 		oApplet.start();
 		//eid('debugButton').innerHTML = 'Stop';
-		sDebugStatus = 'running';	
+		sDebugStatus = 'running';
 	}
 }
 
@@ -962,7 +962,7 @@ function onLineClick(e) {
 	var oDiv = e.currentTarget || e.target || e.srcElement;
 	toggleBreakpointDiv(oDiv);
 }
-	
+
 function toggleBreakpointDiv(oDiv) {
 	switch (oDiv.iMark) {
 		case 2:
@@ -977,7 +977,7 @@ function toggleBreakpointDiv(oDiv) {
 			oDiv.style.backgroundColor = 'green';
 			oDiv.style.color = 'white';
 			oDiv.iMark = 1;
-			aBreakpoints[oDiv.iLine] = true;			
+			aBreakpoints[oDiv.iLine] = true;
 			break;
 	}
 }
@@ -993,7 +993,7 @@ function onBreakpoint(iLine) {
 		sDebugStatus = 'paused';
 		oActiveBreakpoint = oDiv;
 		showRegisters();
-	}	
+	}
 }
 
 function setMargin() {
@@ -1028,7 +1028,7 @@ function toggleBreakpoint() {
 	var iLine = editor.oCursor.y - 1;
 	var oMargin = eid('codeMargin');
 	var oDiv = oMargin.childNodes[iLine];
-	toggleBreakpointDiv(oDiv);	
+	toggleBreakpointDiv(oDiv);
 }
 
 Sel.setRange(editor.el, 0, 0);
@@ -1068,7 +1068,7 @@ if (parent.app) {
 				var aEntry = {};
 				aEntry.sData = editor.el.value;
 				if (aDoc.sName.match(/\.bas$/i)) {
-					aEntry.sMode = 'dos';					
+					aEntry.sMode = 'dos';
 				}
 				return aEntry;
 			},
