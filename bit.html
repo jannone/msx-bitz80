@@ -42,6 +42,7 @@ body {
 textarea, .fixed {
 	font-family: SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace;
 	font-size: 13px;
+	outline: none;
 }
 
 .fixed {
@@ -259,6 +260,7 @@ var shared = {};
 		<ul>
 			<li><a onclick='newFile()'>New</a></li>
 			<li><a onclick='load()'>Load...</a></li>
+			<input type="file" id="fileInput" style="display: none;">
 			<li><a onclick='save()'>Save...</a></li>
 		</ul>
 		</li>
@@ -294,8 +296,7 @@ var shared = {};
 			<li><a href='faq.html' target='faq'>BiT FAQ</a></li>
 			<!--<li><a onclick=''>Z80 ASM Reference</a></li>
 			<li><a onclick=''>About...</a></li>-->
-			<li><a href='http://sourceforge.net/project/showfiles.php?group_id=182985' target='sf'>Download BiT</a></li>
-			<li><a href='http://sourceforge.net/projects/bitz80/' target='sf'>Project on SourceForge.net</a></li>
+			<li><a href='https://github.com/jannone/msx-bitz80' target='gh'>Project on Github</a></li>
 		</ul>
 		</li>
 	</ul>
@@ -846,39 +847,33 @@ function newFile() {
 	eid('code').value = '';
 }
 
-function load() {
-	oFile = new File('as');
-	var bGranted = File.permission(function() {
-		oFile.loadPicker('Load ASM');
-		var sData = oFile.load();
-		if (sData != false) {
-			editor.el.value = sData;
-			editor.postChange();
+function setupFileLoading() {
+	document.getElementById('fileInput').addEventListener('change', function(event) {
+		const file = event.target.files[0];
+		if (file) {
+			const reader = new FileReader();
+			reader.onload = function(e) {
+				editor.el.value = e.target.result;
+				editor.postChange();
+			};
+			reader.readAsText(file);
 		}
-	});
-	if (!bGranted) {
-		alert("Error: access denied.\nYou must grant local access to allow loading files");
-		if (!localAccess)
-			warning("Click <a href='faq.html#onlineAccess' target='faq'>here</a> to discover how to enable loading/saving");
-	}
+	});	
+}
+
+function load() {
+	document.getElementById('fileInput').click();
 }
 
 function save() {
-	oFile = new File('as');
-	var bGranted = File.permission(function() {
-		oFile.savePicker('Save ASM');
-		var mRes;
-		try {
-			mRes = oFile.save(editor.el.value);
-		} catch(e) {
-			alert("Error: access denied");			
-		}
-	});
-	if (!bGranted) {
-		alert("Error: access denied.\nYou must grant local access to allow saving files");
-		if (!localAccess)
-			warning("Click <a href='faq.html#onlineAccess' target='faq'>here</a> to discover how to enable loading/saving");
-	}
+	const textAreaContent = editor.el.value;
+	const blob = new Blob([textAreaContent], { type: 'text/plain' });
+	const link = document.createElement('a');
+	link.href = URL.createObjectURL(blob);
+	link.download = 'program.asm';
+	document.body.appendChild(link);
+	link.click();
+	document.body.removeChild(link);
 }
 
 function showRegisters() {
@@ -1045,6 +1040,8 @@ window.onresize();
 
 setInterval(setMargin, 1000);
 setInterval(setMarginScroll, 150);
+
+setupFileLoading();
 
 /* MSXGDE */
 
